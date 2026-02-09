@@ -8,6 +8,7 @@ export default function TextForm(props) {
         setText("you have clicked on hhandleupclick" + text)
         let newtext = text.toUpperCase()
         setText(newtext)
+        props.showAlert("Converted to UpperCase!", "success")
 
     }
     const handleLowClick = (event)=>{
@@ -15,6 +16,7 @@ export default function TextForm(props) {
         setText("you have clicked on hhandleLowclick" + text)
         let newtext = text.toLowerCase()
         setText(newtext)
+        props.showAlert("Converted to LowerCase!", "success")
 
     }
     const handleOnChange = (event)=>{
@@ -46,7 +48,7 @@ export default function TextForm(props) {
             <p>{text.split(" ").length} words and {text.length} characters</p>
             <p>{(0.008 * (text.split(" ").length)).toFixed(2)} Minutes read</p>
             <h1>Preview</h1>
-            <p>{text}</p>
+            <p>{text.length>0? text : "Enter the text to see the preview"}</p>
         </div>
     </>
   )
